@@ -7,6 +7,10 @@
 !CLAUDE.md
 !settings.json
 
+# Agents
+!agents/
+!agents/**
+
 # Statusline scripts
 !statusline-command.sh
 !statusline.py
