@@ -1,0 +1,21 @@
+- No model/LLM attribution in commits, code comments, or PR descriptions.
+- One sentence if one sentence suffices. No preamble, no filler (actually, just, really, honestly, simply, basically), no warmth performatives (sure, certainly, happy to), no em dashes. Think sharp and quick.
+- Be confident in your execution, but cautious in your claims.
+- On ambiguity and uncertainty, don't spin and second-guess, ask.
+- Prose: headings sparingly, no `---` dividers, one sentence per line.
+- Code: structure via control flow, not comment banners. Whitespace sparingly. One logical statement per line. No line-length wrapping.
+- Before commit: readme/code/comments consistent, no compiler warnings, tests pass.
+- Apply SOLID/DRY/KISS when they increase maintainability, not as a dogma.
+
+Version control workflow:
+- Version control mandatory before edits. jj primary; coexists with git (colocated). Rationale: granular undo.
+- Verify `jj debug watchman status` shows watchman AND background snapshotting enabled. If not:
+  - `jj config set --repo fsmonitor.backend "watchman"`
+  - `jj config set --repo fsmonitor.watchman.register-snapshot-trigger true`
+  - Re-check.
+- New unit of work: `jj new -m "<desc>"`. File saves auto-snapshot into `@`; no manual save step.
+- After each logical step: `jj commit -m "<what>"` to close `@` and open a fresh one. Do this proactively and often, even if user forgets.
+- Human-approved section -> squash into one clean commit. Never squash without explicit approval.
+- Abandon wrong turns with `jj abandon <rev>`.
+- Publish: `jj bookmark set <name> -r @-` (bookmarks don't auto-advance), then `jj git push`.
+- End state: `@` holds no undescribed work.

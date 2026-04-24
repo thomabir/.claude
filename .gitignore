@@ -1,0 +1,16 @@
+# Deny everything by default
+*
+.*
+
+# Core config
+!.gitignore
+!CLAUDE.md
+!settings.json
+
+# Statusline scripts
+!statusline-command.sh
+!statusline.py
+
+# Global memory
+!memory/
+!memory/**
