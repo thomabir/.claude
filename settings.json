@@ -3,5 +3,50 @@
   "statusLine": {
     "type": "command",
     "command": "bash \"$HOME/.claude/statusline-command.sh\""
+  },
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(cd:*)",
+      "Bash(grep:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(cat:*)",
+      "Bash(echo:*)",
+      "Bash(git status*)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(git show*)",
+      "Bash(git branch*)",
+      "Bash(git remote*)",
+      "Bash(git blame*)",
+      "Bash(git rev-parse*)",
+      "Bash(jj log*)",
+      "Bash(jj status*)",
+      "Bash(jj diff*)",
+      "Bash(jj show*)",
+      "Bash(jj bookmark*)",
+      "Bash(jj debug watchman status*)"
+    ],
+    "deny": [
+      "Bash(rm:*)",
+      "Bash(sudo:*)",
+      "Bash(chmod *777*)",
+      "Bash(chown:*)",
+      "Bash(dd:*)",
+      "Bash(mkfs:*)",
+      "Bash(eval:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(* | sh*)",
+      "Bash(* ; *)",
+      "Bash(* &)",
+      "Bash(* /etc/*)",
+      "Bash(* /usr/*)",
+      "Bash(* /var/*)",
+      "Bash(* ~/.ssh/*)",
+      "Bash(* ..*)",
+      "Bash(* //*)"
+    ]
   }
 }
