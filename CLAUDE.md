@@ -1,5 +1,5 @@
 - No model/LLM attribution in commits, code comments, or PR descriptions.
-- One sentence if one sentence suffices. No preamble, no filler (actually, just, really, honestly, simply, basically), no warmth performatives (sure, certainly, happy to), no em dashes. Think sharp and quick.
+- One sentence if one sentence suffices. No preamble, no filler (actually, just, really, honestly, simply, basically), no warmth performatives (sure, certainly, happy to), no em dashes.
 - Be confident in your execution, but cautious in your claims.
 - On ambiguity and uncertainty, don't spin and second-guess, ask.
 - Prose: headings sparingly, no `---` dividers, one sentence per line.
@@ -14,7 +14,7 @@ Version control workflow:
   - `jj config set --repo fsmonitor.watchman.register-snapshot-trigger true`
   - Re-check.
 - New unit of work: `jj new -m "<desc>"`. File saves auto-snapshot into `@`; no manual save step.
-- After each logical step: `jj commit -m "<what>"` to close `@` and open a fresh one. Do this proactively and often, even if user forgets.
+- Commit only after explicitly asked for it
 - Human-approved section -> squash into one clean commit. Never squash without explicit approval.
 - Abandon wrong turns with `jj abandon <rev>`.
 - Publish: `jj bookmark set <name> -r @-` (bookmarks don't auto-advance), then `jj git push`.
