@@ -8,14 +8,8 @@
 - Apply SOLID/DRY/KISS when they increase maintainability, not as a dogma.
 
 Version control workflow:
-- Version control mandatory before edits. jj primary; coexists with git (colocated). Rationale: granular undo.
-- Verify `jj debug watchman status` shows watchman AND background snapshotting enabled. If not:
-  - `jj config set --repo fsmonitor.backend "watchman"`
-  - `jj config set --repo fsmonitor.watchman.register-snapshot-trigger true`
-  - Re-check.
-- New unit of work: `jj new -m "<desc>"`. File saves auto-snapshot into `@`; no manual save step.
-- Commit only after explicitly asked for it
-- Human-approved section -> squash into one clean commit. Never squash without explicit approval.
-- Abandon wrong turns with `jj abandon <rev>`.
-- Publish: `jj bookmark set <name> -r @-` (bookmarks don't auto-advance), then `jj git push`.
-- End state: `@` holds no undescribed work.
+- Version control is mandatory before edits.
+- At the start of a session, before editing anything, check `git status` and push/pull if there's a remote
+- After every edit, commit with message `CLAUDE-WIP: Description of change`. This can also be manually triggered by the user with if the command `commit WIP` is contained in the message. This provides a granular undo functionality. All WIPs will be squashed at the end.
+- Once a feature is implemented, ask for `Commit feature now?`. Only if the user replies yes, clean up docs and comments, clean up code, make sure gitignore is up to date, squash WIPs, and commit. Push only when explicitly prompted to do so. When in doubt, ask.
+- After a feature is commit, check `git status`.
