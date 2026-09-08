@@ -49,3 +49,17 @@ Examples:
 - Once a feature is implemented, ask for `Commit feature now?`. Only if the user replies yes, clean up docs and comments, clean up code, make sure no compiler warnings, run tests, make sure gitignore is up to date, run pre-commit, squash WIPs, and finally commit.
 - Push only when explicitly prompted to do so. Before pushing, scan for common mistakes such as unintentionally added files, stale docs (README not updated).
 - After a feature is committed, check `git status` and ensure clean state.
+
+## Data analysis
+
+If your work includes data analysis:
+
+- This type of work tends to be iterative, and code from initial iterations may turn out to be factually incorrect later. Still, it must be preserved. Rule: All analysis must be repeatable, even if it is wrong. Deleting or overwriting previous experiments is not allowed.
+- Every experiment (or analysis) goes into a separate folder, labelled numerically. New experiments must never change code or data of old experiments.
+- It pays to be atomic here: `001_acquire-data`, `002_analyse-flux`, `003_acquire-wider-range`, `004_combined-flux-analysis`, `005_compact-plots-for-paper` etc.
+- Every experiment may have raw data, intermediate data, results, plots, and code. Code must never be shared between experiments, since a change of this code may modify the output of previous experiments, violating repeatability.
+- Data from old experiments may be reused (immutable), though this should be carefully stated in the readme of the experiment.
+- Plots must be in pdf format, using autolayout and tight layout.
+- Results and data to (re)generate plots must also be stored, ideally as simple text or csv files that are both human- and machine-readable
+- All variables must have obvious units. By convention, it is appended to the variable with an underscore unless SI units are used or the convention is documented in the code. Example: `wavelength = 1e6 # m` or `flux = 3 # photons/s` or `wavelength_um = wavelength * 1e6`.
+- Most variables should be immutable during analysis, if this is reasonably doable.
