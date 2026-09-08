@@ -34,6 +34,16 @@
 - no `---` dividers (they are redundant, use headings or paragraphs)
 - one sentence per line
 - Commit messages shall be one-liners with the usual character limit.
+- Use the established technical term. Where a standard word exists, use it and do not paraphrase it into everyday language.
+  BAD: "what the numbers mean" / "how sure we are" / "what this cannot tell us"
+  GOOD: "definition of terms" / "uncertainty" / "degeneracy"
+- A cross-reference names its target. It states the content by its technical name and does not advertise it or hint at it.
+  BAD: "Read README.md for what the numbers mean and for what this measurement cannot separate."
+  GOOD: "See README.md for definitions of terms."
+- No teaser constructions. A phrase whose function is to make the reader continue rather than to inform is forbidden, in titles, headings, captions and cross-references alike.
+  Forbidden patterns: "what X cannot do", "why X matters", "what we learned", "the surprising ...", "here is the catch", "and that changes everything".
+- Text that code writes into a file is prose and follows every rule here: headers of results files, figure titles, axis labels, table captions, log lines, docstrings. A template string in a script is not exempt.
+- Test before writing any title, heading or pointer: would this sentence appear in an instrument manual or a standards document? If it reads like the section title of a blog post, rewrite it as a noun phrase naming the content.
 
 Examples:
 - "The messy term is bounded, sharply and in one line, by the common-path diattenuation times the clean result: ∣ΔN∣≤D N0" -> "The term is bounded as ∣ΔN∣≤D N0, where D is the common-path attenuation, and N0 is the null depth without the perturbation term" (Reason: Redundant and unscientific language, reads like a sales pitch)
