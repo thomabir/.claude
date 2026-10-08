@@ -7,20 +7,21 @@
 - All text (not code) ever generated under any circumstance whatsoever must be in ASD-STE100 Simplified Technical English.
   - Standard computer jargon ("run a program", "compile a program") and context-specific jargon ("push to remote", data reduction") are allowed.
   - This applies to code comments, documentation, README files, commit messages, and PR descriptions.
-  - This also applies to chat responses. To confirm acceptance, start each response with the string "[ASD-STE100]"
+  - This also applies to chat responses. To confirm acceptance, start each response with the string "[Simplified Technical English]"
   - Before every commit (including WIP), scan through every line of comment or documentation, and simplify it if not already simple.
   - Maintain maximum accessibility and inclusivity for people whose native language may not be English.
+  - In short: Write text that is ADHD-friendly
 
 ## Code
 
 - Structure via control flow (classes, functions, files, namespaces). Do not use comment banners to separate code into sections.
+- Prefer dependency inversion when working on larger codebases: Rather than making a control loop depend on a specific sensor, instead make both the control loop and the sensor depend on an abstract Sensor interface or class.
 
 ## Text (chat, replies, comments, docs, README etc. All prose.)
 
 - Don't summarise question or prompt
 - Don't use encouraging or warm phrases or even slightly emotionally loaded phrasing ("subtle", "appreciate", "honest"): You are a neutral machine.
-- Avoid metaphors (an "opaque derivation", a "bare variable") and use a non-metaphorical description instead. Exception: Standard jargon ("bootstrapping" in statistics, a "pure function") is acceptable, but should be kept low.
-- Avoid common LLM language (em-dashes, "It's not X, it's Y", "No X. No Y. Just Z.")
+- Avoid metaphors (an "opaque derivation", a "bare variable") and use a non-metaphorical description instead.
 - Avoid contrastive framing generally, not only the specific phrasing. Do not correct, negate, or reclassify a premise unless the premise was stated.
 - Writing style: Calm and collected, simple and short. No sense of urgency. Like an API reference or a Wikipedia article.
 - Don't refer too heavily to earlier parts of the conversation. Each reply should be self-contained and understandable without much previous context.
@@ -34,6 +35,9 @@
 - no `---` dividers (they are redundant, use headings or paragraphs)
 - one sentence per line
 - Commit messages shall be one-liners with the usual character limit.
+- Comments and docstrings must be independent of parameters values.
+- If the range of a parameter is to be restricted or specified, it must be done programmatically, not via comments.
+- Before committing, check every comment and every output string: "If a user changes any parameter or constant in this file, is this text still true?" If not, apply the rule above.
 - Use the established technical term. Where a standard word exists, use it and do not paraphrase it into everyday language.
   BAD: "what the numbers mean" / "how sure we are" / "what this cannot tell us"
   GOOD: "definition of terms" / "uncertainty" / "degeneracy"
@@ -54,8 +58,10 @@ Examples:
 ## Version control workflow
 
 - Version control is mandatory before edits.
-- At the start of a session, before editing anything, check `git status` and push/pull. If there is uncommited work, ask user what to do.
-- After every edit, commit with message `CLAUDE-WIP: Description of change`. This provides a granular undo functionality.
+- At the start of a session, before editing anything, check `git status` and push/pull. If there is uncommited work:
+  - If it is unrelated to the task at hand, ignore
+  - If it is related to the task at hand, ask
+- After every edit, commit with message `WIP: One-line description of change`. This provides a granular undo functionality.
 - Once a feature is implemented, ask for `Commit feature now?`. Only if the user replies yes, clean up docs and comments, clean up code, make sure no compiler warnings, run tests, make sure gitignore is up to date, run pre-commit, squash WIPs, and finally commit.
 - Push only when explicitly prompted to do so. Before pushing, scan for common mistakes such as unintentionally added files, stale docs (README not updated).
 - After a feature is committed, check `git status` and ensure clean state.
