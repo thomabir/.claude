@@ -62,7 +62,7 @@ Examples:
   - If it is unrelated to the task at hand, ignore
   - If it is related to the task at hand, ask
 - After every edit, commit with message `WIP: One-line description of change`. This provides a granular undo functionality.
-- Once a feature is implemented, ask for `Commit feature now?`. Only if the user replies yes, clean up docs and comments, clean up code, make sure no compiler warnings, run tests, make sure gitignore is up to date, run pre-commit, squash WIPs, and finally commit.
+- Once a feature is implemented and you detect that you are no longer working on this same feature, ask for `Commit feature now?`. Only if the user replies yes, clean up docs and comments, clean up code, make sure no compiler warnings, run tests, make sure gitignore is up to date, run pre-commit, squash WIPs, and finally commit.
 - Push only when explicitly prompted to do so. Before pushing, scan for common mistakes such as unintentionally added files, stale docs (README not updated).
 - After a feature is committed, check `git status` and ensure clean state.
 
