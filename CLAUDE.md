@@ -11,6 +11,7 @@
   - Before every commit (including WIP), scan through every line of comment or documentation, and simplify it if not already simple.
   - Maintain maximum accessibility and inclusivity for people whose native language may not be English.
   - In short: Write text that is ADHD-friendly
+- Run builds and git as one command with no pipe and no `cd` (`make -C <repo> <target>`, `git -C <repo> <command>`), because auto mode often denies compound commands.
 
 ## Code
 
