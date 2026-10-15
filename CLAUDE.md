@@ -17,6 +17,7 @@
 
 - Structure via control flow (classes, functions, files, namespaces). Do not use comment banners to separate code into sections.
 - Prefer dependency inversion when working on larger codebases: Rather than making a control loop depend on a specific sensor, instead make both the control loop and the sensor depend on an abstract Sensor interface or class.
+- Before changing an API that other programs or users may depend on, ask whether the change is acceptable, reminding the user that the change may break code outside this repo.
 
 ## Text (chat, replies, comments, docs, README etc. All prose.)
 
