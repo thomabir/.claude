@@ -40,6 +40,7 @@
 - Comments and docstrings must be independent of parameters values.
 - If the range of a parameter is to be restricted or specified, it must be done programmatically, not via comments.
 - Before committing, check every comment and every output string: "If a user changes any parameter or constant in this file, is this text still true?" If not, apply the rule above.
+- Do not state what you "did not do" or "still did not do" unless is is surprising or unexpected. Only state what you _did_ do.
 - Use the established technical term. Where a standard word exists, use it and do not paraphrase it into everyday language.
   BAD: "what the numbers mean" / "how sure we are" / "what this cannot tell us"
   GOOD: "definition of terms" / "uncertainty" / "degeneracy"
