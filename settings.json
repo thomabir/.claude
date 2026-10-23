@@ -16,15 +16,39 @@
       "Bash(git remote*)",
       "Bash(git blame*)",
       "Bash(git rev-parse*)",
-      "Bash(jj log*)",
-      "Bash(jj status*)",
-      "Bash(jj diff*)",
-      "Bash(jj show*)",
-      "Bash(jj bookmark*)",
-      "Bash(jj debug watchman status*)"
+      "mcp__partsbox__list_parts",
+      "mcp__partsbox__get_part",
+      "mcp__partsbox__get_part_storage",
+      "mcp__partsbox__get_part_lots",
+      "mcp__partsbox__get_part_stock",
+      "mcp__partsbox__list_lots",
+      "mcp__partsbox__get_lot",
+      "mcp__partsbox__list_storage_locations",
+      "mcp__partsbox__get_storage_location",
+      "mcp__partsbox__list_storage_parts",
+      "mcp__partsbox__list_storage_lots",
+      "mcp__partsbox__list_projects",
+      "mcp__partsbox__get_project",
+      "mcp__partsbox__get_project_entries",
+      "mcp__partsbox__get_project_builds",
+      "mcp__partsbox__get_build",
+      "mcp__partsbox__list_orders",
+      "mcp__partsbox__get_order",
+      "mcp__partsbox__get_order_entries",
+      "mcp__partsbox__get_cache_info",
+      "mcp__partsbox__get_image",
+      "mcp__partsbox__get_image_info",
+      "mcp__partsbox__get_image_size_estimate",
+      "mcp__partsbox__get_file",
+      "mcp__partsbox__get_file_url",
+      "mcp__partsbox__create_project",
+      "mcp__partsbox__add_project_entries"
+    ],
+    "ask": [
+      "mcp__partsbox__update_project",
+      "mcp__partsbox__update_project_entries"
     ],
     "deny": [
-      "Bash(rm:*)",
       "Bash(sudo:*)",
       "Bash(chmod *777*)",
       "Bash(chown:*)",
@@ -41,8 +65,40 @@
       "Bash(* /var/*)",
       "Bash(* ~/.ssh/*)",
       "Bash(* ..*)",
-      "Bash(* //*)"
-    ]
+      "Bash(* //*)",
+      "Read(~/.partsbox/**)",
+      "Edit(~/.partsbox/**)",
+      "Bash(*.partsbox*)",
+      "mcp__partsbox__create_part",
+      "mcp__partsbox__update_part",
+      "mcp__partsbox__delete_part",
+      "mcp__partsbox__add_meta_part_ids",
+      "mcp__partsbox__remove_meta_part_ids",
+      "mcp__partsbox__add_substitute_ids",
+      "mcp__partsbox__remove_substitute_ids",
+      "mcp__partsbox__add_stock",
+      "mcp__partsbox__remove_stock",
+      "mcp__partsbox__move_stock",
+      "mcp__partsbox__update_stock",
+      "mcp__partsbox__update_lot",
+      "mcp__partsbox__update_storage_location",
+      "mcp__partsbox__rename_storage_location",
+      "mcp__partsbox__archive_storage_location",
+      "mcp__partsbox__restore_storage_location",
+      "mcp__partsbox__change_storage_settings",
+      "mcp__partsbox__delete_project",
+      "mcp__partsbox__archive_project",
+      "mcp__partsbox__restore_project",
+      "mcp__partsbox__delete_project_entries",
+      "mcp__partsbox__update_build",
+      "mcp__partsbox__create_order",
+      "mcp__partsbox__add_order_entries",
+      "mcp__partsbox__receive_order",
+      "mcp__partsbox__delete_order_entry",
+      "mcp__partsbox__get_image_resource",
+      "mcp__partsbox__get_file_resource"
+    ],
+    "defaultMode": "auto"
   },
   "model": "opus",
   "statusLine": {
@@ -50,8 +106,28 @@
     "command": "bash \"$HOME/.claude/statusline-command.sh\""
   },
   "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true
+    "frontend-design@claude-plugins-official": false,
+    "clangd-lsp@claude-plugins-official": true,
+    "agent-toolkit@thomabir": true
+  },
+  "extraKnownMarketplaces": {
+    "thomabir": {
+      "source": {
+        "source": "github",
+        "repo": "thomabir/agent-tooklit"
+      }
+    }
   },
   "effortLevel": "high",
+  "modelSettings": {
+    "claude-sonnet-5": {
+      "effortLevel": "medium"
+    },
+    "claude-opus-5": {
+      "effortLevel": "low"
+    }
+  },
+  "tui": "fullscreen",
+  "timeFormat": "24-hour-utc",
   "agentPushNotifEnabled": true
 }
